@@ -29,7 +29,7 @@ const toLocaleString = (number, locale) => {
 	return result;
 };
 
-module.exports = (number, options) => {
+export default (number, options) => {
 	if (!Number.isFinite(number)) {
 		throw new TypeError(`Expected a finite number, got ${typeof number}: ${number}`);
 	}

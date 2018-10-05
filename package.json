@@ -13,15 +13,19 @@
 		"node": ">=6"
 	},
 	"scripts": {
-		"build": "npm run prepare",
+		"build": "babel src/index.js --out-file index.js  && microbundle --no-compress",
 		"test": "xo src/ && node --icu-data-dir=node_modules/full-icu node_modules/ava/cli.js",
 		"test-original": "xo src/ && NODE_ICU_DATA=node_modules/full-icu ava",
 		"test-on-windows": "xo src/ && node --icu-data-dir=node_modules/full-icu node_modules/ava/cli.js",
-		"prepare": "babel src/index.js --out-file index.js",
 		"pub": "npm publish --access public"
 	},
+	"main": "dist/pretty-bytes.js",
+	"umd:main": "dist/pretty-bytes.umd.js",
+	"module": "dist/pretty-bytes.m.js",
 	"files": [
-		"index.js"
+		"dist/*",
+		"index.js",
+		"src/index.js"
 	],
 	"keywords": [
 		"pretty",
@@ -45,6 +49,7 @@
 		"@babel/preset-env": "7.1.0",
 		"ava": "0.25.0",
 		"full-icu": "1.2.1",
+		"microbundle": "0.6.0",
 		"xo": "0.23.0"
 	}
 }

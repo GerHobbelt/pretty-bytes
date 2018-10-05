@@ -1,5 +1,10 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 var UNITS = ['B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
@@ -22,7 +27,7 @@ var toLocaleString = function toLocaleString(number, locale) {
   return result;
 };
 
-module.exports = function (number, options) {
+var _default = function _default(number, options) {
   if (!Number.isFinite(number)) {
     throw new TypeError("Expected a finite number, got ".concat(_typeof(number), ": ").concat(number));
   }
@@ -52,3 +57,5 @@ module.exports = function (number, options) {
   var unit = UNITS[exponent];
   return prefix + numberString + ' ' + unit;
 };
+
+exports.default = _default;
