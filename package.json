@@ -15,6 +15,7 @@
 	"scripts": {
 		"test": "xo && NODE_ICU_DATA=node_modules/full-icu ava",
 		"test-on-windows": "xo && ava",
+		"prepare": "babel src/index.js --out-file index.js",
 		"pub": "npm publish --access public"
 	},
 	"files": [
@@ -38,6 +39,8 @@
 	],
 	"devDependencies": {
 		"ava": "0.25.0",
+		"babel-cli": "^6.26.0",
+		"babel-preset-env": "1.7.0",
 		"full-icu": "1.2.1",
 		"xo": "0.23.0"
 	}
