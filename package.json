@@ -13,8 +13,10 @@
 		"node": ">=6"
 	},
 	"scripts": {
-		"test": "xo && NODE_ICU_DATA=node_modules/full-icu ava",
-		"test-on-windows": "xo && ava",
+		"build": "npm run prepare",
+		"test": "xo src/ && node --icu-data-dir=node_modules/full-icu node_modules/ava/cli.js",
+		"test-original": "xo src/ && NODE_ICU_DATA=node_modules/full-icu ava",
+		"test-on-windows": "xo src/ && node --icu-data-dir=node_modules/full-icu node_modules/ava/cli.js",
 		"prepare": "babel src/index.js --out-file index.js",
 		"pub": "npm publish --access public"
 	},
@@ -38,9 +40,10 @@
 		"localized"
 	],
 	"devDependencies": {
+		"@babel/cli": "7.1.2",
+		"@babel/core": "7.1.2",
+		"@babel/preset-env": "7.1.0",
 		"ava": "0.25.0",
-		"babel-cli": "^6.26.0",
-		"babel-preset-env": "1.7.0",
 		"full-icu": "1.2.1",
 		"xo": "0.23.0"
 	}

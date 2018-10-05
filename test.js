@@ -1,5 +1,27 @@
 import test from 'ava';
 import m from './src/index';
+import assert from 'assert';
+
+
+
+// make sure we're running this test rig with full-icu installed and operational:
+//
+// As noted by `npm install --save-dev full-icu`:
+// 
+// > By the way, if you have full data, running this in node:
+// >     new Intl.DateTimeFormat('es',{month:'long'}).format(new Date(9E8));
+// > ... will show “enero”. If it shows “January” you don't have full data.
+// > 
+// > News: Please see https://github.com/icu-project/full-icu-npm/issues/6
+const icuCheck = new Intl.DateTimeFormat('es',{month:'long'}).format(new Date(9E8));
+assert.strictEqual(icuCheck, 'enero', `icuCheck: "${icuCheck}"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If it shows “January” you don\'t have full ICU data installed. 
+Make sure the FULL-ICU package is active while running the tests.
+
+`);
+
+
 
 test('throws on invalid input', t => {
 	t.throws(() => m(''));
