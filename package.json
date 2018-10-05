@@ -1,6 +1,6 @@
 {
 	"name": "@gerhobbelt/pretty-bytes",
-	"version": "5.1.1-2",
+	"version": "5.1.1-3",
 	"description": "Convert bytes to a human readable string: 1337 → 1.34 kB",
 	"license": "MIT",
 	"repository": "sindresorhus/pretty-bytes",
