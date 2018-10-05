@@ -1,6 +1,6 @@
 {
-	"name": "pretty-bytes",
-	"version": "5.1.0",
+	"name": "@gerhobbelt/pretty-bytes",
+	"version": "5.1.1-1",
 	"description": "Convert bytes to a human readable string: 1337 → 1.34 kB",
 	"license": "MIT",
 	"repository": "sindresorhus/pretty-bytes",
@@ -13,7 +13,9 @@
 		"node": ">=6"
 	},
 	"scripts": {
-		"test": "xo && NODE_ICU_DATA=node_modules/full-icu ava"
+		"test": "xo && NODE_ICU_DATA=node_modules/full-icu ava",
+		"test-on-windows": "xo && ava",
+		"pub": "npm publish --access public"
 	},
 	"files": [
 		"index.js"
@@ -35,8 +37,8 @@
 		"localized"
 	],
 	"devDependencies": {
-		"ava": "*",
-		"full-icu": "^1.2.1",
-		"xo": "*"
+		"ava": "0.25.0",
+		"full-icu": "1.2.1",
+		"xo": "0.23.0"
 	}
 }
